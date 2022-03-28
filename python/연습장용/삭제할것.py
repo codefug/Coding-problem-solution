@@ -1,0 +1,11 @@
+N=int(input("3이상의 자연수 N:"))
+a=0
+b=1
+B=1
+i=1
+while i<=N:
+    print(b,end=' ')
+    B=a
+    a=b
+    b=b+B
+    i+=1
