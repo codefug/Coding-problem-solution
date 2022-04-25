@@ -1,47 +1,35 @@
-#1874
+#14238 출근 기록 최적화 답지
 
-from sys import stdin
+from multiprocessing.connection import answer_challenge
 
-input=stdin.readline
 
-n=int(input())
+def main():
+    global ansl
+    a=input()
+    ansl=len(a)
+    ans=-1
+    cCnt=[0,0,0]
+    for i in a:
+        cCnt[ord(i)-65]+=1
+    for i in range(3):
+        if cCnt[i]>0:
+            tmp=solve(i,[cCnt[0],cCnt[1],cCnt[2]])
+            if tmp!=-1:
+                ans=tmp
+    print(ans)
 
-count=0
-
-stack=[]
-
-answer=[]
-
-message=True
-
-for i in range(n):
+def solve(start,l):
     
-    num=int(input())
+    global ansl
+    
+    word=chr(start+65)
+    
+    l[start]-=1
+    
+    distance=[51,51,51]
+    
+    distance[start]=0
 
-    while count < num:
-        
-        count+=1
-        
-        stack.append(count)
-        
-        answer.append("+")
-        
-    if stack[-1]==num:
-        
-        answer.append("-")
-        
-        stack.pop()
-        
-    else:
-        
-        message=False
-        
-        break
+if __main__=="__name__":
     
-if message==True:
-    
-    print("\n".join(answer))
-    
-else:
-    
-    print("NO")
+    main()
