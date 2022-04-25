@@ -23,7 +23,7 @@ for _ in range(n):
         stack.append(count)
 
         result.append("+")
-    
+        
     if stack[-1] == k:
 
         stack.pop()

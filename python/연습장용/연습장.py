@@ -1,47 +1,47 @@
 #1874
 
-import sys
+from sys import stdin
 
-input=sys.stdin.readline
+input=stdin.readline
 
 n=int(input())
 
-message=True
-
-j=0
-
-answer=[]
+count=0
 
 stack=[]
 
-for i in range(1,n+1):
-    
-    k=int(input()) 
+answer=[]
 
-    while j < k:
-       
-       j+=1
-       
-       answer.append("+")
-       
-       stack.append(j)
-       
-    if stack[-1]!=k:
-        
-        message=False
-        
-        continue
+message=True
+
+for i in range(n):
     
-    else:
+    num=int(input())
+
+    while count < num:
+        
+        count+=1
+        
+        stack.append(count)
+        
+        answer.append("+")
+        
+    if stack[-1]==num:
         
         answer.append("-")
         
         stack.pop()
         
-if message==False:
+    else:
+        
+        message=False
+        
+        break
     
-    print("No")
+if message==True:
+    
+    print("\n".join(answer))
     
 else:
     
-    print("\n".join(answer))
+    print("NO")
