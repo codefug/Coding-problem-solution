@@ -31,5 +31,5 @@ def bobogong(n):
 
 
 n=int(input("n="))
-print(f"레어아이템을 {n}번 돌리면 보보공 나오는 횟수는?",bobogong(n))
+print(f"지금 레어아이템을 {n}번 돌리면 보보공 나오는 횟수는?",bobogong(n))
 print(f"드는 비용은 {n*4900}원")
