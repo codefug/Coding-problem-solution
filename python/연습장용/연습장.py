@@ -1,11 +1,19 @@
-n=int(input())
+def permute(arr):
+    result = [arr[:]]
+    c = [0] * len(arr)
+    i = 0
+    while i < len(arr):
+        if c[i] < i:
+            if i % 2 == 0:
+                arr[0], arr[i] = arr[i], arr[0]
+            else:
+                arr[c[i]], arr[i] = arr[i], arr[c[i]]
+            result.append(arr[:])
+            c[i] += 1
+            i = 0
+        else:
+            c[i] = 0
+            i += 1
+    return result
 
-l=list(map(int,input().split()))
-
-for k in l:
-    
-    if k==n:
-        print(1)
-        break
-else:
-    print(0)
+print(permute([1,2,3]))
