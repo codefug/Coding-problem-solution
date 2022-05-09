@@ -14,14 +14,20 @@ in_l=list(map(int,input().split()))
 
 answer={}
 
-for i in in_l:
+for i in l:
     
     answer[i]=0
+    
+for i in l:
+    
+    answer[i]+=1
 
 for i in in_l:
     
-    if i in l:
+    if i in answer:
         
-        answer[i]+=1
+        print(answer[i])
         
-print(' '.join(f"{answer[m]}"for m in in_l))
+    else:
+        
+        print(0)
